@@ -106,7 +106,8 @@ Game
 
   #initialize
   #start
-  #
+  #verify_guess
+  #display_status
 
 HangMan
   @hang_man_states
@@ -118,7 +119,15 @@ Modules:
   user_inputs
     #new_game_or_load
     #set_difficulty
-    #guess
+    #save_game
+    #input_guess
+
+  file_handler
+    #read_dictionary
+    #load_state
+    #save_state
+
+  
 
   
  

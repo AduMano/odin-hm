@@ -1,0 +1,96 @@
+Hang Man Game...
+Its my first time knowing this xD just like Master Mind Game.
+So learning this might challenge me....
+
+Ive seen the dictionary that ill be using:
+https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english-no-swears.txt
+
+But it contains words that are not required in the assignment (Words that are required to use
+are between 5 to 12 letters.)
+
+for that when the game starts,
+Ill load the dictionary, loop through 1 by 1 (line) and select only those that are inclusively
+within 5 to 12 letters.
+
+Now ive talk to some people who knows about this game and asked them if I correctly 
+guess the correct letter does that rewind or undo the placement of the man's limbs
+from the game, they said its permanent to indicate that every guesses counts.
+
+Now that ive displayed the screen, I think im confident on how will this game run.
+WAIT I FORGOT ABOUT SOMETHING!
+SAVE STATE AND LOAD STATE, its been mentioned on the second and last item on the assignment
+task. From what I learned, I will use YAML for readable configurations for human, so they
+can edit on the file itself. Using JSON is for communications with other networks, devices
+stuff, and lastly the binary serialization, MessagePack, this is for fast serializing and
+deserializing, but gets harder for human to modify since it contains with Binary.
+
+Now, which to choose for serializing and deserializing?
+I think its not YAML, Though its good to use but it takes time to serialize and deserialize.
+That goes same for JSON, I will not consider JSON for this since I wont be communicating 
+with others. 
+
+I think using MessagePack is best for this, because I dont want people to modify the SAVE
+file because that may lead to vulnerabilities or cheating, which makes the player to play
+at advantage, since the WORD must stay hidden, it will be revealed if I were to use YAML
+or JSON (I will explain later in the next paragraph why the WORD is included in save file).
+Aside for anonymous content, using MessagePack is my advantage to load and save files ! 
+
+Now, Why is the WORD will be included in the save file? because when we load, we wanted
+to go back to the same scenario where we save our progress! 
+Aside from the Word, What are the others i needed to be stored in the save file?
+Here is what I think must be included in save file:
+
+- DIFFICULTY (1-3) (Int)
+- WORD (String)
+- STATUS (The Status of the HangedMan) (0-7) (Int)
+- GUESSES (Array)
+
+Pretty neat!
+
+
+GAME FLOW ======================================================== :
+
+When the Program starts :
+
+Checks for save file (if it exist), if it exist then allow the player to choose to
+start a new game or to continue the last save.
+
+Else if save file doesnt exist, Proceed on the game without the player having to 
+choose to play new game or load a file.
+
+Game Start State:
+IF NEW GAME = LOAD DICTIONARY
+IF LOAD GAME = LOAD CURRENT ROUND
+
+
+NEW GAME:
+
+First is to input game difficulty, 
+1 = Easy (5 - 6 letters)
+2 = Normal (8 - 10 letters)
+3 = Hard (11 - 12 letters)
+
+After choosing difficulty, The Game will choose random word that accords to the chosen 
+difficulty. 
+
+
+NEWGAME / LOADFILE STATE SCREEN:
+
+Display Screen Example:
+
+Status:    
+ ____
+|/   |
+|   (_)
+|   \|/
+|    |
+|    
+|
+|_____
+
+Difficulty: EASY
+Guesses : L, A, D, C, E, N, I 
+Word : A C C E N _
+
+
+The game will end ONLY IF THE PLAYER manage to guess the word OR the man dies.

@@ -11,3 +11,6 @@ You will be building a command line Hangman game where one player plays against 
   5. Now implement the functionality where, at the start of any turn, instead of making a guess the player should also have the option to save the game. Remember what you learned about serializing objects… you can serialize your game class too!
   6. When the program first loads, add in an option that allows you to open one of your saved games, which should jump you exactly back to where you were when you saved. Play on!
 
+
+> [!NOTE]
+> If you want to try this, make sure not to touch the states.data. Since that is serialized by MessagePack, its a different format to store data, on which with just one change may cause disruptions or errors by removing a space, indentions, adding character, moving stuff around or adding a space. Simply dont touch it.

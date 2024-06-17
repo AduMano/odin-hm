@@ -66,7 +66,7 @@ IF LOAD GAME = LOAD CURRENT ROUND
 NEW GAME:
 
 First is to input game difficulty, 
-1 = Easy (5 - 6 letters)
+1 = Easy (5 - 7 letters)
 2 = Normal (8 - 10 letters)
 3 = Hard (11 - 12 letters)
 
@@ -127,6 +127,7 @@ Modules:
     #read_dictionary
     #load_state
     #save_state
+    #load_file
 
   
 

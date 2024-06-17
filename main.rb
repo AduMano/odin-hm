@@ -1,6 +1,8 @@
-# string_literal_frozen: false
+# frozen_string_literal: true
 
 require('colorize')
+require_relative('lib/game')
+require_relative('lib/hang_man')
 
 # Init
 HANGMAN = HangMan.new

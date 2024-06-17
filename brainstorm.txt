@@ -102,6 +102,7 @@ Game
   @word
   @difficulty
   @guesses
+  @hangman
   @hangman_status
 
   #initialize

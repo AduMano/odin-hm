@@ -55,8 +55,8 @@ When the Program starts :
 Checks for save file (if it exist), if it exist then allow the player to choose to
 start a new game or to continue the last save.
 
-Else if save file doesnt exist, Proceed on the game without the player having to 
-choose to play new game or load a file.
+Else if save file doesnt exist, the player can only choose new game (If they insist
+on trying to load, it will just print No Save File.)
 
 Game Start State:
 IF NEW GAME = LOAD DICTIONARY
@@ -94,3 +94,31 @@ Word : A C C E N _
 
 
 The game will end ONLY IF THE PLAYER manage to guess the word OR the man dies.
+
+
+GAME OBJECTS ================================================================ :
+
+Game 
+  @word
+  @difficulty
+  @guesses
+  @hangman_status
+
+  #initialize
+  #start
+  #
+
+HangMan
+  @hang_man_states
+
+  #initialize
+  #render_hangman(status)
+
+Modules:
+  user_inputs
+    #new_game_or_load
+    #set_difficulty
+    #guess
+
+  
+ 
